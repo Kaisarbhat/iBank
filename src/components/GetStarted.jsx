@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../style'
 import { arrowUp } from '../assets'
+import SignUp from './SignUp'
 
 function GetStarted() {
   return (
@@ -10,7 +11,7 @@ function GetStarted() {
             <p className='fpnt-poppins font-medium text-[18px] leading-[23px] mr-2' >
                 <span className='text-gradient'>Get</span>
             </p>
-            <img src={arrowUp} alt="arrow" className='w-[23px] h-[23px] object-contain ' />
+            <img src={arrowUp} alt="arrow" className='w-[23px] h-[23px] object-contain ' onClick={() => window.open(<SignUp/>)} />
 
 
          </div>
