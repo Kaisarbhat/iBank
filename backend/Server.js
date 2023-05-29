@@ -2,11 +2,13 @@ const connectToMongo=require('./Database');
 const express = require('express');
 const router=express.Router();
 connectToMongo();
+const bodyParser=require('body-parser');
 const app = express()
 const port = 3000
 const User = require('./User');
 const cors = require("cors");
 const { createProxyMiddleware } = require('http-proxy-middleware');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

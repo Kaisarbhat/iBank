@@ -11,7 +11,7 @@ function Billing() {
       </div>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>Easily control your billing & invoicing.<br className='sm:block hidden'/></h2>
-        <p className={`${styles.paragraph} max-w-[520px] mt-5`}>Elit enim sed massa etiam. Mauris eu adipiscing ultrices ametodio aenean neque. Fusce ipsum orci rhoncus aliporttitor integer platea placerat.</p>
+        <p className={`${styles.paragraph} max-w-[520px] mt-5`}>With iBank, you can effortlessly take control of your billing and invoicing processes. Our comprehensive suite of features empowers businesses of all sizes to streamline their financial operations, saving time and improving efficiency.</p>
         <div className='flex flex-row flex-wrap sm:mt-10 mt-6 '>
           <img src={apple} alt="apple_store"
           className='w-[128px] h-[42px] object-contain mr-5 cursor-pointer' />

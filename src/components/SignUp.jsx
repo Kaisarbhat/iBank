@@ -18,7 +18,7 @@ function SignUp() {
   const PostData = async (event)=>{
       event.preventDefault();
       const {firstname,lastname,email,city,state,zip} = user;
-      let res = await fetch("http://127.0.0.1:3000/register",{
+      let res = await fetch("/register",{
         method:"post",
         headers:{
           "Content-Type" : "application/json"
