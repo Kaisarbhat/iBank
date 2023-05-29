@@ -4,23 +4,21 @@ const router=express.Router();
 connectToMongo();
 const bodyParser=require('body-parser');
 const app = express()
-const port = 3000
+const port = 5001
 const User = require('./User');
 const cors = require("cors");
 const { createProxyMiddleware } = require('http-proxy-middleware');
-app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cors())
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(bodyParser.json())
 // app.use(
 //   '/api',
 //   createProxyMiddleware({
-//     target: 'http://localhost:3000',
+//     target: 'http://localhost:5173',
 //     changeOrigin: true,
-//     pathRewrite: {
-//       '^/api': '', // Remove the '/api' prefix when forwarding requests
-//     },
+//     // Remove the '/api' prefix when forwarding requests
+    
 //   })
 // );
 
@@ -28,7 +26,7 @@ app.get('/',(req,res)=>{
        res.send("App Working");
 })
 
-router.post('/register', async (req, res) => {
+app.post('/api/saveData', async (req, res) => {
 
   try {
     const newUser = new User({
@@ -49,7 +47,7 @@ router.post('/register', async (req, res) => {
     console.error('Error creating user:', error);
     res.status(500).json({ error: 'Failed to create user' });
   }
-  res.write("User Saved Successfully");
+  // res.write("User Saved Successfully");
 });
 
 

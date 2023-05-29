@@ -1,6 +1,7 @@
 
 import styles from '../style';
 import React,{useState} from 'react';
+import axios from 'axios';
 
 function SignUp() {
   const [user, setUser] = useState({
@@ -18,28 +19,47 @@ function SignUp() {
   const PostData = async (event)=>{
       event.preventDefault();
       const {firstname,lastname,email,city,state,zip} = user;
-      let res = await fetch("/register",{
-        method:"post",
-        headers:{
-          "Content-Type" : "application/json"
+      //  res =await  axios.post("http://localhost:5001/api/saveData",{
+      //   method:"POST",
+      //   headers:{
+      //     "Content-Type" : "application/json"
+      //   },
+      //   body:JSON.stringify({firstname,lastname,email,city,state,zip})
+        
+      //  }
+      // )
+     const res = await axios.post(
+        "http://localhost:5001/api/saveData",
+        {
+          firstname,
+          lastname,
+          email,
+          city,
+          state,
+          zip,
         },
-        body:JSON.stringify({firstname,lastname,email,city,state,zip})
-      }).then(()=>{
-        // Once posted, the user will be notified 
-        alert('You have been added to the system!');
-    }).catch((error)=>{
-      console.log(error);
-  });
-
-      const data = await res.json();
-      if(res.status===422 || !data){
-        window.alert("Invalid data")
-        console.log("Invalid data")
-      }
-      else{
-        window.alert("Success")
-        console.log("Success")
-      }
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+        )
+        .then((response)=>{
+          console.log(response);
+        }).catch((error)=>{
+          console.log(error);
+        });
+        res.status(200).json("Success")
+        
+    
+      // if(res.status===422 || !res.data){
+      //   window.alert("Invalid data")
+      //   console.log("Invalid data")
+      // }
+      // else{
+      //   window.alert("Success")
+      //   console.log("Success")
+      // }
   }
 
   return (
@@ -52,7 +72,7 @@ function SignUp() {
         First Name
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" name="firstname" placeholder="Kaisar"
-      value={user.fname}
+      value={user.firstname}
       onChange={handleInputs}
       />
       {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
@@ -62,7 +82,7 @@ function SignUp() {
         Last Name
       </label>
       <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" name='lastname'  placeholder="Bhat"
-      value={user.lname}
+      value={user.lastname}
       onChange={handleInputs}
       />
     </div>

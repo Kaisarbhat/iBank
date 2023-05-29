@@ -56,8 +56,8 @@ export const feedback = [
     id: "feedback-2",
     content:
       "Money makes your life easier. If you're lucky to have it, you're lucky.",
-    name: "Kaisar Ahmad Bhat",
-    title: "Founder & Leader",
+    name: "Vinieth SS",
+    title: "Leader & Founder",
     img: people02,
   },
   {
