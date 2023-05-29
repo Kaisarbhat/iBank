@@ -25,6 +25,7 @@ function App() {
             <Testimonials/>
             <Clients/>
             <CTA/>
+            <SignUp/>
             <Footer/>
       </div>
     </div>
