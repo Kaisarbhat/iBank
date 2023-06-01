@@ -7,6 +7,7 @@ function SignUp() {
   const [user, setUser] = useState({
     firstname:"",lastname:"",email:"",city:"",state:"",zip:""
   });
+  
   let name,value;
   const handleInputs = (event) =>{
     console.log(event)
@@ -19,17 +20,8 @@ function SignUp() {
   const PostData = async (event)=>{
       event.preventDefault();
       const {firstname,lastname,email,city,state,zip} = user;
-      //  res =await  axios.post("http://localhost:5001/api/saveData",{
-      //   method:"POST",
-      //   headers:{
-      //     "Content-Type" : "application/json"
-      //   },
-      //   body:JSON.stringify({firstname,lastname,email,city,state,zip})
-        
-      //  }
-      // )
      const res = await axios.post(
-        "http://localhost:5001/api/saveData",
+        "http://localhost:5000/api/saveData",
         {
           firstname,
           lastname,
@@ -49,7 +41,7 @@ function SignUp() {
         }).catch((error)=>{
           console.log(error);
         });
-        res.status(200).json("Success")
+       
         
     
       // if(res.status===422 || !res.data){
@@ -61,6 +53,9 @@ function SignUp() {
       //   console.log("Success")
       // }
   }
+  const handleButtonClick = () => {
+    window.location.href = 'http://localhost:5000/thankYou';
+  };
 
   return (
     <div className='flex flex-row'>
@@ -135,7 +130,8 @@ function SignUp() {
       />
     </div>
   </div>
-  <button type='submit' className={`py-4 px-6 bg-blue-gradient rounded-[8px] font-poppins font-medium text-[18px] text-primary outline-none ${styles} mt-6`}>Get OnBoard</button>
+  <button type='submit' className={`py-4 px-6 bg-blue-gradient rounded-[8px] font-poppins font-medium text-[18px] text-primary outline-none ${styles} mt-6`} onClick={handleButtonClick}>Start Banking With Us</button>
+ 
 </form>
       </div>
     </div>

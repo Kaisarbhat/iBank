@@ -7,7 +7,6 @@ const app = express()
 const port = 5000
 const User = require('./User');
 const cors = require("cors");
-const { createProxyMiddleware } = require('http-proxy-middleware');
 const { body, validationResult } = require('express-validator');
 app.use(cors())
 // app.use(express.urlencoded({ extended: true }));
@@ -52,7 +51,7 @@ app.post('/api/saveData',[
 
     // Save the user to the database
     const savedUser = await newUser.save();
-    console.log(savedUser);
+    // console.log(savedUser);
 
     res.status(200).json({ message: 'User created successfully', user: savedUser });
   }catch(error){
@@ -61,6 +60,9 @@ app.post('/api/saveData',[
 }
   // res.write("User Saved Successfully");
 });
+app.get('/thankYou',(req,res)=>{
+  res.sendFile(__dirname+'/thankYou.html')
+})
 
 
 app.listen(port, () => {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | iBank</title>
+  <style>
+    /* Add CSS styles here */
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    
+    .logo {
+      text-align: center;
+      padding-top: 100px;
+      animation: scaleIn 1s ease-in-out forwards;
+      display: flexbox;
+    }
+    
+    .message {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 24px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-in-out 0.5s forwards;
+    }
+    .text-gradient {
+  color: rgb(63, 169, 201);
+  font-size:12em;
+  margin: 0 -70px;
+    }
+    
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <span class="text-gradient "style="margin-left:400px"><span style="font-size: 11.3rem; font-weight: 550;">i</span>Bank</span>
+    </div>
+    <div class="message">
+      <h1>Thank You!</h1>
+      <h3>For Showing your interest</h3>
+      <p>One 0f our executes will Contact you shortly.</p>
+    </div>
+    <div style="border-top: 2px solid rgb(27, 97, 201); margin-top: 80px;">
+      <p class=" text-white"style="margin-left:500px ;margin-top:20px"> Copyright &copy; 2023 iBank. All Rights Reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
